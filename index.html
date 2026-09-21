@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김동하 | 프로필 & 자기소개</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f5ff',
+              100: '#e0ebff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              accent: '#f97316'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 15px rgba(99, 102, 241, 0.4)' },
+              '100%': { boxShadow: '0 0 30px rgba(249, 115, 22, 0.7)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter & Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+      background-color: #0b0f19;
+      color: #f3f4f6;
+      overflow-x: hidden;
+    }
+
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .glass-card-interactive {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card-interactive:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 12px 40px 0 rgba(99, 102, 241, 0.25);
+    }
+
+    .neon-text-indigo {
+      text-shadow: 0 0 10px rgba(99, 102, 241, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .neon-text-orange {
+      text-shadow: 0 0 10px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.3);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative selection:bg-indigo-500 selection:text-white">
+
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 py-8 sm:py-12 space-y-8">
+
+    <header class="flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-gray-800/80 pb-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-orange-500 flex items-center justify-center font-bold text-xl text-white shadow-lg">
+          KD
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            김동하 <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-normal">00년생 · 25학번</span>
+          </h1>
+          <p class="text-xs text-gray-400">UIL & 전산전자공학 학도</p>
+        </div>
+      </div>
+
+      <!-- Quick Quick Action Status Pill -->
+      <div class="flex items-center gap-3">
+        <div class="glass-card px-3 py-1.5 rounded-full flex items-center gap-2 text-xs text-gray-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>상태: <b>오늘 1교시 세이프! ⚡</b></span>
+        </div>
+        <button onclick="scrollToSection('contact-section')" class="px-3.5 py-1.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-all shadow-md shadow-indigo-600/30 flex items-center gap-1.5">
+          <i class="fa-regular fa-paper-plane"></i> 방명록 남기기
+        </button>
+      </div>
+    </header>
+
+    <section class="glass-card rounded-2xl p-6 sm:p-8 bg-gradient-to-r from-indigo-950/40 via-purple-950/30 to-amber-950/40 border border-indigo-500/30 relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 text-indigo-500/10 text-9xl font-black pointer-events-none select-none">
+        08:00
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+        <div class="space-y-2 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold border border-amber-500/30">
+            <i class="fa-solid fa-bolt text-amber-400"></i> TODAY'S SPECIAL TMI
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            "오늘 <span class="text-amber-400 underline decoration-amber-500/50 underline-offset-4">1교시 출석</span> 당당히 성공했습니다!" ⏰✨
+          </h2>
+          <p class="text-sm text-gray-300 max-w-xl">
+            알람을 이겨내고 정시 도달 완료! 00년생 25학번의 패기로 아침을 열었습니다. 축하 버저를 눌러 기쁨을 함께 나눠주세요!
+          </p>
+        </div>
+
+        <button id="tmi-btn" onclick="celebrateAttendance()" class="group relative px-6 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold text-sm shadow-lg shadow-orange-600/30 hover:shadow-orange-500/50 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-3 shrink-0">
+          <i class="fa-solid fa-bell text-xl group-hover:rotate-12 transition-transform"></i>
+          <div class="text-left">
+            <div class="text-xs opacity-90">알람 정복 기념</div>
+            <div class="text-base font-black">1교시 축하 폭죽 팡!</div>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Profile Main Card -->
+      <div class="md:col-span-1 glass-card rounded-2xl p-6 flex flex-col items-center text-center justify-between relative overflow-hidden group">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-orange-500"></div>
+
+        <div class="my-4 relative">
+          <!-- Avatar Frame -->
+          <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-orange-500 p-1 shadow-xl shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300">
+            <div class="w-full h-full bg-gray-900 rounded-[14px] flex flex-col items-center justify-center p-3 text-center space-y-2 relative overflow-hidden">
+              <i class="fa-solid fa-laptop-code text-4xl text-indigo-400 animate-float"></i>
+              <span class="text-xs font-bold text-gray-300">Logic & Code</span>
+            </div>
+          </div>
+          <span class="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-md bg-orange-500 text-white text-[11px] font-black shadow-md">
+            🍜 라면 러버
+          </span>
+        </div>
+
+        <div class="space-y-2 mb-4">
+          <h2 class="text-2xl font-bold text-white">김동하</h2>
+          <p class="text-indigo-300 font-medium text-xs">Kim Dongha</p>
+          <div class="flex flex-wrap justify-center gap-1.5 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs">00년생</span>
+            <span class="px-2.5 py-1 rounded-md bg-indigo-900/60 text-indigo-300 text-xs border border-indigo-700/40">25학번</span>
+            <span class="px-2.5 py-1 rounded-md bg-purple-900/60 text-purple-300 text-xs border border-purple-700/40">INTP</span>
+          </div>
+        </div>
+
+        <div class="w-full pt-4 border-t border-gray-800 text-left text-xs space-y-2 text-gray-400">
+          <div class="flex items-center justify-between">
+            <span><i class="fa-solid fa-graduation-cap text-indigo-400 mr-2"></i>주전공</span>
+            <span class="text-gray-200 font-medium">전산전자공학</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span><i class="fa-solid fa-cubes text-purple-400 mr-2"></i>융합/융합소속</span>
+            <span class="text-gray-200 font-medium">UIL</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span><i class="fa-solid fa-bowl-food text-orange-400 mr-2"></i>최애 푸드</span>
+            <span class="text-orange-300 font-medium">라면 (매니아)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Intro Statement & Key Pillars -->
+      <div class="md:col-span-2 space-y-6 flex flex-col justify-between">
+
+        <!-- Statement Box -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 space-y-4">
+          <div class="flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-wider uppercase">
+            <i class="fa-solid fa-quote-left"></i> Hello, World!
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white leading-relaxed">
+            "호기심에서 시작해 <span class="text-indigo-400">논리적인 코드</span>로 세상을 구성하는 것을 좋아하는 <span class="text-orange-400">김동하</span>입니다."
+          </h3>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            복잡한 문제의 본질을 파악하고 호기심을 지적 탐구로 이어가는 **INTP** 성향을 가지고 있습니다. 
+            **UIL & 전산전자공학**을 공부하며 사용자 인터페이스와 시스템 논리의 조화를 탐구하고 있으며, 
+            힘든 순간엔 따끈하고 맛있는 **라면 한 그릇**으로 리프레시를 합니다!
+          </p>
+        </div>
+
+        <!-- Major Highlights Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <!-- Major 1: UIL -->
+          <div class="glass-card glass-card-interactive rounded-xl p-5 border-l-4 border-l-indigo-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-indigo-400">전공 분야 01</span>
+              <i class="fa-solid fa-compass-drafting text-indigo-400 text-lg"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-1">UIL</h4>
+            <p class="text-xs text-gray-400 leading-normal">
+              사용자 경험과 인터랙티브 UI/UX, 논리적 구조 설계를 결합하여 직관적이고 아름다운 디지털 경험을 연출합니다.
+            </p>
+          </div>
+
+          <!-- Major 2: 전산전자 -->
+          <div class="glass-card glass-card-interactive rounded-xl p-5 border-l-4 border-l-purple-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-purple-400">전공 분야 02</span>
+              <i class="fa-solid fa-microchip text-purple-400 text-lg"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-1">전산전자공학</h4>
+            <p class="text-xs text-gray-400 leading-normal">
+              소프트웨어 시스템 알고리즘부터 하드웨어 전기/전자 논리 구조까지 깊이 있게 이해하는 엔지니어링 마인드.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-gray-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">성격 유형</span>
+            <h3 class="text-xl font-bold text-white">INTP : 아이디어와 논리의 사색가</h3>
+          </div>
+          <p class="text-xs text-gray-400 mt-1">동하의 머릿속은 언제나 새로운 호기심과 시스템적 분석으로 가득 차 있습니다.</p>
+        </div>
+        <div class="text-right">
+          <span class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">INTP-T</span>
+        </div>
+      </div>
+
+      <!-- Trait Interactive Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Trait 1 -->
+        <div onclick="highlightTrait(this)" class="trait-card glass-card rounded-xl p-4 cursor-pointer hover:bg-gray-800/80 transition-all border border-gray-800">
+          <div class="w-10 h-10 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-brain text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-white mb-1">논리적 분석력</h4>
+          <p class="text-xs text-gray-400">모든 현상과 코드의 근본적인 원리를 파악하고자 하는 깊은 탐구욕.</p>
+        </div>
+
+        <!-- Trait 2 -->
+        <div onclick="highlightTrait(this)" class="trait-card glass-card rounded-xl p-4 cursor-pointer hover:bg-gray-800/80 transition-all border border-gray-800">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-lightbulb text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-white mb-1">창의적 아이디어</h4>
+          <p class="text-xs text-gray-400">기존의 방식을 뛰어넘는 새로운 시각과 독창적인 해결책 제시.</p>
+        </div>
+
+        <!-- Trait 3 -->
+        <div onclick="highlightTrait(this)" class="trait-card glass-card rounded-xl p-4 cursor-pointer hover:bg-gray-800/80 transition-all border border-gray-800">
+          <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-gears text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-white mb-1">효율적 시스템</h4>
+          <p class="text-xs text-gray-400">불필요한 절차를 줄이고 깔끔한 핵심에 집중하는 합리적 태도.</p>
+        </div>
+
+        <!-- Trait 4 -->
+        <div onclick="highlightTrait(this)" class="trait-card glass-card rounded-xl p-4 cursor-pointer hover:bg-gray-800/80 transition-all border border-gray-800">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3">
+            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-white mb-1">지적 호기심</h4>
+          <p class="text-xs text-gray-400">관심 있는 분야가 생기면 밤을 새워서라도 파고드는 몰입력.</p>
+        </div>
+
+      </div>
+
+      <!-- INTP Progress Sliders -->
+      <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
+        <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">INTP 성향 파라미터</h4>
+        <div class="space-y-2 text-xs">
+          <div>
+            <div class="flex justify-between text-gray-400 mb-1">
+              <span>내향형 (I) 82%</span>
+              <span>외향형 (E) 18%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-gray-800 overflow-hidden">
+              <div class="h-full bg-indigo-500 rounded-full" style="width: 82%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-gray-400 mb-1">
+              <span>직관형 (N) 78%</span>
+              <span>감각형 (S) 22%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-gray-800 overflow-hidden">
+              <div class="h-full bg-purple-500 rounded-full" style="width: 78%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-gray-400 mb-1">
+              <span>사고형 (T) 88%</span>
+              <span>감정형 (F) 12%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-gray-800 overflow-hidden">
+              <div class="h-full bg-cyan-500 rounded-full" style="width: 88%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card rounded-2xl p-6 sm:p-8 space-y-6 border-amber-500/30 relative">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-gray-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-orange-500/20 text-orange-400 text-xs font-bold border border-orange-500/30">최애 푸드 연구소</span>
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              라면 취향 연구소 🍜
+            </h3>
+          </div>
+          <p class="text-xs text-gray-400 mt-1">동하의 완벽한 한 그릇! 옵션을 선택해서 나만의 라면 취향 궁합도를 확인해보세요.</p>
+        </div>
+        <div id="ramen-match-badge" class="px-3 py-1.5 rounded-xl bg-orange-500/20 text-orange-300 text-xs font-bold border border-orange-500/30">
+          궁합도 테스트 준비 완료
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Interactive Controls -->
+        <div class="space-y-4">
+
+          <!-- Option 1: Broth vs Dry -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-gray-300">1. 국물 스타일</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="selectRamenOption('type', 'soup', this)" class="ramen-opt-type py-2 px-3 rounded-lg bg-orange-600/30 text-orange-200 border border-orange-500/50 text-xs font-semibold text-center hover:bg-orange-600/40 active">
+                🔥 얼큰한 국물 라면 (동하's PICK)
+              </button>
+              <button onclick="selectRamenOption('type', 'dry', this)" class="ramen-opt-type py-2 px-3 rounded-lg bg-gray-800 text-gray-400 border border-gray-700 text-xs font-semibold text-center hover:bg-gray-700">
+                🍝 자작한 비빔 라면
+              </button>
+            </div>
+          </div>
+
+          <!-- Option 2: Noodle Texture -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-gray-300">2. 면발 익힘 정도</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="selectRamenOption('noodle', 'firm', this)" class="ramen-opt-noodle py-2 px-3 rounded-lg bg-orange-600/30 text-orange-200 border border-orange-500/50 text-xs font-semibold text-center hover:bg-orange-600/40 active">
+                ⚡ 꼬들꼬들한 면 (동하's PICK)
+              </button>
+              <button onclick="selectRamenOption('noodle', 'soft', this)" class="ramen-opt-noodle py-2 px-3 rounded-lg bg-gray-800 text-gray-400 border border-gray-700 text-xs font-semibold text-center hover:bg-gray-700">
+                🍲 푹 익혀 부드러운 면
+              </button>
+            </div>
+          </div>
+
+          <!-- Option 3: Egg Option -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-gray-300">3. 계란 커스텀</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="selectRamenOption('egg', 'poached', this)" class="ramen-opt-egg py-2 px-3 rounded-lg bg-orange-600/30 text-orange-200 border border-orange-500/50 text-xs font-semibold text-center hover:bg-orange-600/40 active">
+                🥚 계란 반숙으로 탁! (동하's PICK)
+              </button>
+              <button onclick="selectRamenOption('egg', 'none', this)" class="ramen-opt-egg py-2 px-3 rounded-lg bg-gray-800 text-gray-400 border border-gray-700 text-xs font-semibold text-center hover:bg-gray-700">
+                🚫 순수 국물 그대로
+              </button>
+            </div>
+          </div>
+
+          <!-- Option 4: Spicy Level -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-gray-300 flex justify-between">
+              <span>4. 맵기 단계</span>
+              <span id="spicy-label" class="text-orange-400">3단계 (얼큰함 - 동하 취향)</span>
+            </label>
+            <input type="range" id="spicy-range" min="1" max="5" value="3" oninput="updateSpicyLevel(this.value)" class="w-full accent-orange-500 bg-gray-800 h-2 rounded-lg cursor-pointer">
+          </div>
+
+        </div>
+
+        <!-- Ramen Display Card -->
+        <div class="glass-card bg-gradient-to-br from-gray-900/90 to-orange-950/20 rounded-xl p-6 text-center space-y-4 border border-orange-500/20 relative">
+          <div class="w-24 h-24 mx-auto rounded-full bg-orange-500/20 flex items-center justify-center text-5xl shadow-inner animate-pulse-slow">
+            🍜
+          </div>
+          <div>
+            <span class="text-xs font-bold text-orange-400 uppercase tracking-widest">Calculated Recipe</span>
+            <h4 id="ramen-title" class="text-lg font-extrabold text-white">김동하의 시그니처 꼬들 국물라면</h4>
+            <p id="ramen-desc" class="text-xs text-gray-300 mt-2 leading-relaxed">
+              얼큰한 국물에 꼬들한 면발, 거기에 살포시 올려진 반숙 계란! 1교시 수업을 마치고 먹으면 극상의 행복을 선사하는 완벽 레시피.
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between">
+            <span class="text-xs text-gray-400">동하와의 라면 궁합도:</span>
+            <span id="match-percent" class="text-xl font-black text-orange-400">100% (완벽 일치!)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-section" class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30">소통하기</span>
+            <h3 class="text-xl font-bold text-white">동하에게 한마디 남기기 ✨</h3>
+          </div>
+          <p class="text-xs text-gray-400 mt-1">응원 메시지나 라면 추천, 1교시 격려글을 편하게 적어주세요!</p>
+        </div>
+        <i class="fa-regular fa-comments text-2xl text-indigo-400"></i>
+      </div>
+
+      <!-- Quick Preset Stickers -->
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="text-gray-400 flex items-center mr-1">빠른 태그:</span>
+        <button onclick="addPresetSticker('1교시 출석 축하해! 🎉')" class="px-2.5 py-1 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors">🎉 1교시 출석 축하</button>
+        <button onclick="addPresetSticker('라면 같이 한그릇 하자 🍜')" class="px-2.5 py-1 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors">🍜 라면 메이트</button>
+        <button onclick="addPresetSticker('INTP 반가워요! 🧠')" class="px-2.5 py-1 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors">🧠 INTP 반가워요</button>
+        <button onclick="addPresetSticker('UIL/전산전자 파이팅! ⚡')" class="px-2.5 py-1 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors">⚡ UIL/전산전자 파이팅</button>
+      </div>
+
+      <!-- Input Form -->
+      <form id="cheer-form" onsubmit="handleCheerSubmit(event)" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <input type="text" id="visitor-name" placeholder="작성자 이름 / 닉네임" required class="px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-800 text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors">
+          <input type="text" id="visitor-msg" placeholder="메시지 내용..." required class="sm:col-span-2 px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-800 text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors">
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i> 방명록 등록
+          </button>
+        </div>
+      </form>
+
+      <!-- Visitor Messages List -->
+      <div id="messages-container" class="space-y-2 max-h-60 overflow-y-auto pr-1">
+        <!-- Messages loaded dynamically -->
+      </div>
+    </section>
+
+    <footer class="text-center text-xs text-gray-500 py-6 border-t border-gray-800/60 space-y-2">
+      <p>Designed & Developed with <i class="fa-solid fa-heart text-indigo-500"></i> by <b>김동하 (Kim Dongha)</b></p>
+      <p class="text-[11px] text-gray-600">00년생 · 25학번 · UIL / 전산전자공학 | All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // User selections state
+    const userRamen = {
+      type: 'soup',
+      noodle: 'firm',
+      egg: 'poached',
+      spicy: 3
+    };
+
+    const donghaRamen = {
+      type: 'soup',
+      noodle: 'firm',
+      egg: 'poached',
+      spicy: 3
+    };
+
+    // Preloaded Messages
+    let cheerMessages = [
+      { name: '익명의 25학번 동기', msg: '오늘 1교시 출석 대단해! 다음에도 개근 가자 🔥', time: '방금 전' },
+      { name: '선배 라면 마니아', msg: '역시 라면은 꼬들면에 반숙 계란이지! 취향 존중합니다 🍜', time: '10분 전' },
+      { name: 'INTP 동지', msg: '논리적인 생각 멋집니다. 전산전자 & UIL 파이팅!', time: '1시간 전' }
+    ];
+
+    // On Load Initializer
+    window.onload = function() {
+      loadStoredMessages();
+      renderMessages();
+      calculateMatch();
+    };
+
+    // Scroll Helper
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Attendance Celebration Confetti & Web Audio Sound
+    function celebrateAttendance() {
+      // 1. Confetti burst
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#6366f1', '#f97316', '#a855f7', '#38bdf8']
+      });
+
+      // 2. Play subtle retro sound using Web Audio API
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          const ctx = new AudioCtx();
+          const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+          notes.forEach((freq, index) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.1, ctx.currentTime + index * 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + index * 0.1 + 0.25);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + index * 0.1);
+            osc.stop(ctx.currentTime + index * 0.1 + 0.3);
+          });
+        }
+      } catch (e) {
+        console.log('Audio playback not supported or blocked');
+      }
+
+      // Visual pulse response
+      const btn = document.getElementById('tmi-btn');
+      btn.classList.add('scale-110');
+      setTimeout(() => btn.classList.remove('scale-110'), 200);
+    }
+
+    // Trait card interactivity
+    function highlightTrait(element) {
+      document.querySelectorAll('.trait-card').forEach(card => {
+        card.classList.remove('border-indigo-500', 'bg-indigo-950/30');
+      });
+      element.classList.add('border-indigo-500', 'bg-indigo-950/30');
+    }
+
+    // Ramen preference selector logic
+    function selectRamenOption(category, value, element) {
+      userRamen[category] = value;
+
+      // Update button active states for this category
+      const buttons = document.querySelectorAll(`.ramen-opt-${category}`);
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-orange-600/30', 'text-orange-200', 'border-orange-500/50', 'active');
+        btn.classList.add('bg-gray-800', 'text-gray-400', 'border-gray-700');
+      });
+
+      element.classList.remove('bg-gray-800', 'text-gray-400', 'border-gray-700');
+      element.classList.add('bg-orange-600/30', 'text-orange-200', 'border-orange-500/50', 'active');
+
+      calculateMatch();
+    }
+
+    function updateSpicyLevel(val) {
+      userRamen.spicy = parseInt(val);
+      const spicyLabel = document.getElementById('spicy-label');
+      const textMap = {
+        1: '1단계 (순한맛 - 순둥파)',
+        2: '2단계 (보통 - 진라면 매운맛급)',
+        3: '3단계 (얼큰함 - 동하 취향 🔥)',
+        4: '4단계 (매콤칼칼 - 불닭급)',
+        5: '5단계 (지옥의 맵당당)'
+      };
+      spicyLabel.innerText = textMap[val];
+      calculateMatch();
+    }
+
+    function calculateMatch() {
+      let score = 0;
+      if (userRamen.type === donghaRamen.type) score += 25;
+      if (userRamen.noodle === donghaRamen.noodle) score += 25;
+      if (userRamen.egg === donghaRamen.egg) score += 25;
+      
+      const spicyDiff = Math.abs(userRamen.spicy - donghaRamen.spicy);
+      if (spicyDiff === 0) score += 25;
+      else if (spicyDiff === 1) score += 15;
+      else if (spicyDiff === 2) score += 5;
+
+      const badge = document.getElementById('ramen-match-badge');
+      const percentText = document.getElementById('match-percent');
+      const ramenTitle = document.getElementById('ramen-title');
+      const ramenDesc = document.getElementById('ramen-desc');
+
+      percentText.innerText = `${score}% (${score >= 80 ? '완벽한 궁합!' : score >= 50 ? '통하는 맛!' : '개성 존중!'})`;
+      badge.innerText = `라면 궁합도: ${score}%`;
+
+      // Update recipe description
+      const typeStr = userRamen.type === 'soup' ? '국물' : '비빔';
+      const noodleStr = userRamen.noodle === 'firm' ? '꼬들한' : '부드러운';
+      const eggStr = userRamen.egg === 'poached' ? '반숙 계란' : '계란 없이';
+
+      ramenTitle.innerText = `커스텀 recipe: ${noodleStr} ${typeStr}라면`;
+      ramenDesc.innerText = `${userRamen.spicy}단계 맵기의 ${typeStr}베이스에 ${noodleStr} 면발, 그리고 ${eggStr} 조합! 동하와의 취향 일치도는 ${score}% 입니다.`;
+    }
+
+    // Guestbook & Sticker logic
+    function addPresetSticker(text) {
+      const msgInput = document.getElementById('visitor-msg');
+      msgInput.value = text;
+      msgInput.focus();
+    }
+
+    function handleCheerSubmit(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('visitor-name');
+      const msgInput = document.getElementById('visitor-msg');
+
+      if (!nameInput.value.trim() || !msgInput.value.trim()) return;
+
+      const newMsg = {
+        name: nameInput.value.trim(),
+        msg: msgInput.value.trim(),
+        time: '방금 전'
+      };
+
+      cheerMessages.unshift(newMsg);
+      saveMessages();
+      renderMessages();
+
+      // Reset
+      msgInput.value = '';
+      
+      // Trigger tiny confetti
+      confetti({
+        particleCount: 40,
+        spread: 40,
+        origin: { y: 0.8 }
+      });
+    }
+
+    function renderMessages() {
+      const container = document.getElementById('messages-container');
+      container.innerHTML = cheerMessages.map(item => `
+        <div class="p-3 rounded-xl bg-gray-900/80 border border-gray-800 flex justify-between items-start text-xs">
+          <div>
+            <span class="font-bold text-indigo-300 mr-2">${escapeHtml(item.name)}</span>
+            <span class="text-gray-300">${escapeHtml(item.msg)}</span>
+          </div>
+          <span class="text-[10px] text-gray-500 whitespace-nowrap ml-2">${item.time}</span>
+        </div>
+      `).join('');
+    }
+
+    function saveMessages() {
+      try {
+        localStorage.setItem('kd_cheer_messages', JSON.stringify(cheerMessages.slice(0, 15)));
+      } catch (e) {
+        console.error('LocalStorage write error', e);
+      }
+    }
+
+    function loadStoredMessages() {
+      try {
+        const stored = localStorage.getItem('kd_cheer_messages');
+        if (stored) {
+          cheerMessages = JSON.parse(stored);
+        }
+      } catch (e) {
+        console.error('LocalStorage read error', e);
+      }
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
